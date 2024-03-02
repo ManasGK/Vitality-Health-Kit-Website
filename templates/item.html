@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Profile</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+    }
+    .profile-picture {
+        display: block;
+        margin: 0 auto 20px;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .info {
+        margin-bottom: 20px;
+    }
+    .info label {
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    {% include "leftmenu.html" %}
+    <h1>User Profile</h1>
+    <img class="profile-picture" src="profile-picture.jpg" alt="Profile Picture">
+    <div class="info">
+        <label>Name:</label>
+        <span>{{data["name"]}}</span>
+    </div>
+    <div class="info">
+        <label>Email:</label>
+        <span>johndoe@example.com</span>
+    </div>
+    <div class="info">
+        <label>Location:</label>
+        <span>New York, USA</span>
+    </div>
+    <div class="info">
+        <label>Age:</label>
+        <span>{{data["age"]}}</span>
+    </div>
+    <div class="info">
+        <label>Interests:</label>
+        <span>Reading, Hiking, Cooking</span>
+    </div>
+    <div class="info">
+        <label>About:</label>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, neque a euismod convallis, ligula mauris finibus lacus, id lacinia felis lorem at justo. Ut suscipit nunc at sapien viverra laoreet.</p>
+    </div>
+</div>
+
+</body>
+</html>
