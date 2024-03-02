@@ -1,4 +1,60 @@
 
     {% include "leftmenu.html" %}
-This is home
-{{data}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Data</title>
+<style>
+  .container {
+    background-color: #FFFFCC; /* Pale yellow background */
+    padding: 20px;
+    border-radius: 15px;
+    width: fit-content;
+    margin: auto;
+  }
+  .box {
+    width: 200px;
+    height: 150px;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin: 20px;
+    padding: 10px;
+    display: inline-block;
+  }
+  .green {
+    background-color: lightgreen;
+  }
+  .orange {
+    background-color: orange;
+  }
+  .red {
+    background-color: lightcoral;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="box green">
+    <h2>Heart Rate</h2>
+    <hr>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+
+  <div class="box orange">
+    <h2>Blood Pressure</h2>
+    <hr>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+
+  <div class="box red">
+    <h2>Temperature</h2>
+    <hr>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+</div>
+
+</body>
+</html>
