@@ -24,6 +24,12 @@ db.insert({"name": "Manas",
 
 user = Query()
 data = db.search(user.name == 'Manas')
+data=[{"name": "Manas",
+           "age":12,
+           "Gender": "Male",
+           "MostRecentHeartRate": 60,
+           "MostRecentBloodPressure" : 100,
+           "MostRecentTemperature" : 39.2}]
 
 print(data)
 
