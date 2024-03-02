@@ -18,7 +18,7 @@ db = TinyDB('mydbfile.json')
 db.insert({"name": "Manas",
            "age":12,
            "Gender": "Male",
-           "MostRecentHeartRate": 65,
+           "MostRecentHeartRate": 110,
            "MostRecentBloodPressure" : 90,
            "MostRecentTemperature" : 39.2})
 
@@ -34,7 +34,8 @@ async def read_item_dashboard(request: Request):
    return templates.TemplateResponse(
        request=request,
        name="home.html",
-       context={"data": data[0]}
+       context={"data": data[0],
+                "MostRecentHeartRate": data[0]["MostRecentHeartRate"]}
    )
 
 # For the results page
