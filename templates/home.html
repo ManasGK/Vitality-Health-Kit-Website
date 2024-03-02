@@ -1,6 +1,5 @@
+{% include "leftmenu.html" %}
 
-    {% include "leftmenu.html" %}
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -37,10 +36,10 @@
 <body>
 
 <div class="container">
-  <div class="box green">
+  <div class="box {% if 45 <= MostRecentHeartRate <= 65 %}green{% elif 40 <= MostRecentHeartRate < 45 or 65 < MostRecentHeartRate <= 75 %}orange{% else %}red{% endif %}">
     <h2>Heart Rate</h2>
     <hr>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Value: {{ MostRecentHeartRate }}</p>
   </div>
 
   <div class="box orange">

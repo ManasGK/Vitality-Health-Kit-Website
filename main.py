@@ -15,7 +15,7 @@ templates = Jinja2Templates(directory="templates")
 db = TinyDB('mydbfile.json')
 
 
-db.insert({"name": "Manass",
+db.insert({"name": "Manas",
            "age":12,
            "Gender": "Male",
            "MostRecentHeartRate": 65,
