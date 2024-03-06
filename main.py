@@ -27,7 +27,7 @@ data = db.search(user.name == 'Manas')
 data=[{"name": "Manas",
            "age":12,
            "Gender": "Male",
-           "MostRecentHeartRate": 60,
+           "MostRecentHeartRate": 70,
            "MostRecentBloodPressure" : 100,
            "MostRecentTemperature" : 39.2}]
 
