@@ -36,22 +36,22 @@
 <body>
 
 <div class="container">
-  <div class="box {% if 45 <= MostRecentHeartRate <= 65 %}green{% elif MostRecentHeartRate < 45 or MostRecentHeartRate > 75 %}red{% else %}orange{% endif %}">
+  <div class="box {% if 45 <= RecentHeartRateofUser <= 65 %}green{% elif RecentHeartRateofUser < 45 or RecentHeartRateofUser > 75 %}red{% else %}orange{% endif %}">
     <h2>Heart Rate</h2>
     <hr>
-    <p>Value: {{ MostRecentHeartRate }}</p>
+    <p>Value: {{ RecentHeartRateofUser }}</p>
   </div>
 
-  <div class="box orange">
+  <div class="box {% if 45 <= RecentHeartRateofUser <= 65 %}green{% elif RecentHeartRateofUser < 45 or RecentHeartRateofUser > 75 %}red{% else %}orange{% endif %}">
     <h2>Blood Pressure</h2>
     <hr>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p></p>
   </div>
 
-  <div class="box red">
+  <div class="box {% if 36.4 <= RecentTempOfUser <= 37.5 %}green{% elif RecentTempOfUser < 34 or RecentTempOfUser > 39.2 %}red{% else %}orange{% endif %}">
     <h2>Temperature</h2>
     <hr>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Value: {{RecentTempOfUser}}</p>
   </div>
 </div>
 
