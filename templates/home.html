@@ -31,6 +31,7 @@
   .red {
     background-color: lightcoral;
   }
+
 </style>
 </head>
 <body>
@@ -39,19 +40,43 @@
   <div class="box {% if 45 <= RecentHeartRateofUser <= 65 %}green{% elif RecentHeartRateofUser < 45 or RecentHeartRateofUser > 75 %}red{% else %}orange{% endif %}">
     <h2>Heart Rate</h2>
     <hr>
-    <p>Value: {{ RecentHeartRateofUser }}</p>
+    <p>Most Recent Value: <strong><em>{{ RecentHeartRateofUser }} bpm</em></strong></p>
+    <hr>
+    {% if 45 <= RecentHeartRateofUser <= 65 %}
+        <p>Looks good!<p>
+    {% elif RecentHeartRateofUser < 45 or RecentHeartRateofUser > 75 %}
+        <p>Immediate Care needed!</p>
+    {% else %}
+        <p>Care Needed</p>
+    {% endif %}
   </div>
 
   <div class="box {% if 45 <= RecentHeartRateofUser <= 65 %}green{% elif RecentHeartRateofUser < 45 or RecentHeartRateofUser > 75 %}red{% else %}orange{% endif %}">
     <h2>Blood Pressure</h2>
     <hr>
-    <p></p>
+    <p>Most Recent Value: </strong><em>{{RecentBPOfUser}}</strong></em></p>
+    <hr>
+    {% if 45 <= RecentHeartRateofUser <= 65 %}
+        <p>Looks good!</p>
+    {% elif RecentHeartRateofUser < 45 or RecentHeartRateofUser > 75 %}
+        <p>Immediate Care needed!</p>
+    {% else %}
+        <p>Care Needed</p>
+    {% endif %}
   </div>
 
   <div class="box {% if 36.4 <= RecentTempOfUser <= 37.5 %}green{% elif RecentTempOfUser < 34 or RecentTempOfUser > 39.2 %}red{% else %}orange{% endif %}">
     <h2>Temperature</h2>
     <hr>
-    <p>Value: {{RecentTempOfUser}}</p>
+    <p>Most Recent Value: <strong><em>{{RecentTempOfUser}}°C</em></strong></p>
+    <hr>
+    {% if 36.4 <= RecentTempOfUser <= 37.5 %}
+        <p>Looks good!</p>
+    {% elif RecentTempOfUser < 34 or RecentTempOfUser > 39.2 %}
+        <p>Immediate Care needed!</p>
+    {% else %}
+        <p>Care Needed</p>
+    {% endif %}
   </div>
 </div>
 
