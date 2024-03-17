@@ -37,7 +37,7 @@
 <body>
 
 <div class="container">
-  <div class="box {% if 45 <= RecentHeartRateofUser <= 65 %}green{% elif RecentHeartRateofUser < 45 or RecentHeartRateofUser > 75 %}red{% else %}orange{% endif %}">
+  <div class="box {% if 45 <= RecentHeartRateofUser <= 65 %}green{% elif RecentHeartRateofUser < 35 or RecentHeartRateofUser > 80 %}red{% else %}orange{% endif %}">
     <h2>Heart Rate</h2>
     <hr>
     <p>Most Recent Value: <strong><em>{{ RecentHeartRateofUser }} bpm</em></strong></p>

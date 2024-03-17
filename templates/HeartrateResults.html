@@ -7,13 +7,15 @@
     <title>Graph Example</title>
     <!-- Include Chart.js library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include Chart.js annotations plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.7/chartjs-plugin-annotation.min.js"></script>
 </head>
 <body>
-    <canvas id="myChart" width="600" height="600"></canvas>
+    <canvas id="myChart" width="700" height="500"></canvas>
 
     <script>
         // Parse JSON data passed from FastAPI
-        const data = JSON.parse('{{ AllHeartRatesOfUser | safe }}');
+        const data = JSON.parse('{{ data_values_heartrate_json | safe }}');
 
         const ctx = document.getElementById('myChart').getContext('2d');
         // Render graph using Chart.js
@@ -24,20 +26,51 @@
                 datasets: [{
                     label: 'Heartrates from Last 30 days',
                     data: data,
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    backgroundColor: function(context) {
+                        var value = context.dataset.data[context.dataIndex];
+                        // Define your conditions and corresponding colors
+                        if (value < 65 && value > 45) {
+                            return 'green';
+                        } else if (value < 35 || value > 80) {
+                            return 'red';
+                        } else {
+                            return 'orange';
+                        }
+                    },
                     borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
+                    borderWidth: 1,
+                    pointRadius: 7,
                 }]
             },
             options: {
                 maintainAspectRatio: false,
                 responsive: false,
                 scales: {
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Number of Days ago",
+                        }
+                    }],
                     yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Heart Rate (bpm)'
+                        },
                         ticks: {
                             min: 0,
                             beginAtZero: true
                         }
+                    }]
+                },
+                annotation: {
+                    annotations: [{
+                        type: 'line',
+                        mode: 'horizontal',
+                        value: 80,  // Adjust this value to position the horizontal line
+                        borderColor: 'red',
+                        borderWidth: 5,
+                        borderDash: [5, 5]  // Optional: make the line dashed
                     }]
                 }
             }

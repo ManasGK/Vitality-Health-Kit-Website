@@ -1,10 +1,70 @@
 <!DOCTYPE html>
+
+{% include "leftmenu.html" %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>This is the Temperature Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Example</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include Chart.js annotations plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.7/chartjs-plugin-annotation.min.js"></script>
 </head>
 <body>
+    <canvas id="myChart" width="600" height="600"></canvas>
 
-</body>
-</html>
+<script>
+    // Parse JSON data passed from FastAPI
+    const data = JSON.parse('{{ data_values_temp_json | safe }}');
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+    // Render graph using Chart.js
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: Array.from({length: data.length}, (_, i) => i + 1),  // Corrected variable name here
+            datasets: [{
+                label: 'Temperatures from Last 30 days',
+                data: data,
+                backgroundColor: function(context) {
+                    var value = context.dataset.data[context.dataIndex];
+                    // Define your conditions and corresponding colors
+                    if (value < 37.5 && value > 36.4) {
+                        return 'green';
+                    } else if (value < 34 || value > 39.2) {
+                        return 'red';
+                    } else {
+                        return 'orange';
+                    }
+                },
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1,
+                pointRadius: 5,
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            responsive: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        min: 0,
+                        beginAtZero: true
+                    }
+                }]
+            },
+            annotation: {
+                annotations: [{
+                    type: 'line',
+                    mode: 'horizontal',
+                    scaleID: 'y-axis-0',
+                    value: 80,  // Adjust this value to position the horizontal line
+                    borderColor: 'red',
+                    borderWidth: 5, // Optional: make the line dashed
+                }]
+            }
+        }
+    });
+</script>
