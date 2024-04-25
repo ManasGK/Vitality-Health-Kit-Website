@@ -42,22 +42,21 @@ def GetUserData():
         "data_values_temp_json": data_values_temp_json
     }
 
-@app.route("/signup", methods=["POST", "GET"])
-def MoveToDatabase():
-
-    InfoList = "Info" + currentUser
-
-    email = request.form["email"]
-    password = request.form["password"]
-    fullname = request.form["fullname"]
-    dob = request.form["dob"]
-
-    r.hset(InfoList, email, password)
-    r.hset(InfoList, "name", fullname)
-    r.hset(InfoList, "dob", dob)
-
-    # Redirect to home.html after successful sign-up
-    return RedirectResponse("/dashboard")
+# @app.route("/signup", methods=["POST"])
+# def MoveToDatabase():
+#
+#     InfoList = "Info" + currentUser
+#
+#     email = request.form["email"]
+#     password = request.form["password"]
+#     fullname = request.form["fullname"]
+#     dob = request.form["dob"]
+#
+#     r.hset(InfoList, email, password)
+#     r.hset(InfoList, "name", fullname)
+#     r.hset(InfoList, "dob", dob)
+#
+#     # Redirect to home.html after successful sign-up
 
 @app.get("/dashboard", response_class=HTMLResponse)
 async def read_item_dashboard(request: Request):
