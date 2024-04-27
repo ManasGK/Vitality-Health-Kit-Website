@@ -102,16 +102,7 @@ async def read_item(request: Request): # A function to read the item
     userData = GetUserData()
     return templates.TemplateResponse( # This Built in Function, processes the template file, and generates the final HTML content
        request=request,
-       name="front.html",
-       context=userData
-   )
-
-@app.get("/login", response_class=HTMLResponse) # Shows that /app is the endpoint (makes it unique page) ---- responseclass=HTMLResponse whows that the output file on the server will be in HTML
-async def read_item(request: Request): # A function to read the item
-    userData = GetUserData()
-    return templates.TemplateResponse( # This Built in Function, processes the template file, and generates the final HTML content
-       request=request,
-       name="front.html",
+       name="signup.html",
        context=userData
    )
 
