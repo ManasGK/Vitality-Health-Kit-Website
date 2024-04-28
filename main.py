@@ -103,7 +103,7 @@ async def read_item(request: Request): # A function to read the item
     return templates.TemplateResponse( # This Built in Function, processes the template file, and generates the final HTML content
        request=request,
        name="signup.html",
-       context=userData
+       context=userData,
    )
 
 @app.get("/signup", response_class=HTMLResponse) # Shows that /app is the endpoint (makes it unique page) ---- responseclass=HTMLResponse whows that the output file on the server will be in HTML
