@@ -42,9 +42,9 @@
     <hr>
     <p>Most Recent Value: <strong><em>{{ RecentHeartRateofUser }} bpm</em></strong></p>
     <hr>
-    {% if 45 <= RecentHeartRateofUser <= 65 %}
+    {% if 60 <= RecentHeartRateofUser <= 90 %}
         <p>Looks good!<p>
-    {% elif RecentHeartRateofUser < 45 or RecentHeartRateofUser > 75 %}
+    {% elif RecentHeartRateofUser < 40 or RecentHeartRateofUser > 120 %}
         <p>Immediate Care needed!</p>
     {% else %}
         <p>Care Needed</p>
@@ -72,7 +72,7 @@
     <hr>
     {% if 36.4 <= RecentTempOfUser <= 37.5 %}
         <p>Looks good!</p>
-    {% elif RecentTempOfUser < 34 or RecentTempOfUser > 39.2 %}
+    {% elif RecentTempOfUser < 34 or RecentTempOfUser > 39.5 %}
         <p>Immediate Care needed!</p>
     {% else %}
         <p>Care Needed</p>
