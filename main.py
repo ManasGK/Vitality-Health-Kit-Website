@@ -1,8 +1,6 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
-from fastapi.staticfiles import StaticFiles
-from flask import Flask, request
 import json
 import redis
 
@@ -58,7 +56,7 @@ def GetUserData():
 #
 #     # Redirect to home.html after successful sign-up
 
-@app.get("/dashboard", response_class=HTMLResponse)
+@app.post("/dashboard", response_class=HTMLResponse)
 async def read_item_dashboard(request: Request):
     userData = GetUserData()
     return templates.TemplateResponse(
