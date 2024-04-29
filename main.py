@@ -65,6 +65,15 @@ async def read_item_dashboard(request: Request):
        context=userData
    )
 
+@app.get("/dashboard", response_class=HTMLResponse)
+async def read_item_dashboard(request: Request):
+    userData = GetUserData()
+    return templates.TemplateResponse(
+       request=request,
+       name="home.html",
+       context=userData
+   )
+
 # For the results page
 
 @app.get("/heartrate", response_class=HTMLResponse) # Shows that /app is the endpoint (makes it unique page) ---- responseclass=HTMLResponse whows that the output file on the server will be in HTML
