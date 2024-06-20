@@ -12,7 +12,7 @@ r=redis.Redis(host="redis-14686.c277.us-east-1-3.ec2.redns.redis-cloud.com", por
 
 templates = Jinja2Templates(directory="templates")
 
-currentUser = "BOB"
+currentUser = "MANAS"
 
 # Between here
 # Get the most recent temperature, by going into the list and getting index 0
