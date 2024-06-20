@@ -7,7 +7,7 @@ import redis
 app = FastAPI()
 
 
-r=redis.Redis(host="redis-14686.c277.us-east-1-3.ec2.redns.redis-cloud.com:14686", port=14686, username="default", password="x9B8YhtC8g2KnfE5nFdB9zleCTe8t6qX", decode_responses=True)
+r=redis.Redis(host="redis-14686.c277.us-east-1-3.ec2.redns.redis-cloud.com", port=14686, username="default", password="x9B8YhtC8g2KnfE5nFdB9zleCTe8t6qX", decode_responses=True)
 
 
 templates = Jinja2Templates(directory="templates")
